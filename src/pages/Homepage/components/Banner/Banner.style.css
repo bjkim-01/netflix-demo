@@ -3,6 +3,7 @@
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative; /* for pseudo element */
 }
 
 .banner:before {
@@ -12,6 +13,7 @@
   left: 0;
   height: 56vh;
   width: 100%;
+  z-index: 1;
 }
 
 .banner-text-area {
@@ -22,8 +24,44 @@
   flex-direction: column;
   height: 100%;
   padding: 2rem;
+  color: white;
+  position: relative;
+  z-index: 2;
 }
 
-.banner-text-area > * {
-  z-index: 2;
+/* ====== 모바일 버전 ====== */
+@media (max-width: 768px) {
+  .banner {
+    height: 60vh; /* 화면비 조정 */
+  }
+
+  .banner:before {
+    height: 60vh;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  }
+
+  .banner-text-area {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .banner-text-area p {
+    font-size: 1rem; /* 모바일에서 크기 축소 */
+  }
+}
+
+/* 초소형 기기 (예: 아이폰 SE 이하) */
+@media (max-width: 480px) {
+  .banner-text-area {
+    padding: 1rem;
+  }
+
+  .banner-text-area h1 {
+    font-size: 0.9rem;
+  }
+
+  .banner-text-area p {
+    font-size: 0.8rem;
+  }
 }

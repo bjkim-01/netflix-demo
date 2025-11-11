@@ -19,7 +19,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
+    <div className="background">
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Homepage />} />

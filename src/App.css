@@ -1,7 +1,8 @@
 /* App.css */
-body {
+.background {
   background-color: #000;
   color: #fff;
+  height: 100vh;
 }
 .navbar {
   background-color: #000 !important;

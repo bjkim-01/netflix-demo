@@ -14,13 +14,15 @@ const MovieCard = ({ movie }) => {
     });
     return genreNameList;
   };
+  console.log(movie.poster_path)
   return (
     <div
       style={{
-        backgroundImage:
-          "url(" +
-          `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` +
-          ")",
+        backgroundImage: `url(${
+          movie.poster_path
+            ? `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`
+            : 'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png'
+        })`,
       }}
       className="movie-card"
     >

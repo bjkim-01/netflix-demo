@@ -8,15 +8,19 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 const AppLayout = () => {
   const [keyword, setKeyword] = useState("");
-  
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
 
   const searchByKeyword = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     // url을 바꿔주기
-    navigate(`/movies?q=${keyword}`)
-    setKeyword("")
-  }
+    navigate(`/movies?q=${keyword}`);
+    setKeyword("");
+  };
+
+  const handleFocus = () => {
+    navigate("/movies");
+  };
 
   return (
     <div>
@@ -47,8 +51,11 @@ const AppLayout = () => {
                 aria-label="Search"
                 value={keyword}
                 onChange={(event) => setKeyword(event.target.value)}
+                onFocus={handleFocus}
               />
-              <Button variant="outline-danger" type="submit">Search</Button>
+              <Button variant="outline-danger" type="submit">
+                Search
+              </Button>
             </Form>
           </Navbar.Collapse>
         </Container>
